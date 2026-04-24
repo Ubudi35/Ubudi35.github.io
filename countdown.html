@@ -18,19 +18,57 @@
       width: 100vw;
       height: 100vh;
       border: none;
+      z-index: 0;
+    }
+
+    /* 🎉 Bouton anniversaire */
+    .btn {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 40px;
+      font-size: 22px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #ff4e50, #f9d423);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255,255,255,0.7);
+      animation: pulse 1.5s infinite;
+      z-index: 10;
+    }
+
+    .btn:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255,255,255,0.6); }
+      50% { box-shadow: 0 0 30px rgba(255,255,255,1); }
+      100% { box-shadow: 0 0 10px rgba(255,255,255,0.6); }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- TON COMPTE À REBOURS PLEIN ÉCRAN -->
+  <!-- Compte à rebours plein écran -->
   <iframe src="https://www.watchisup.fr/divers/weekend-anniversaire/embed"></iframe>
 
-  <!-- MUSIQUE -->
+  <!-- 🎁 Bouton -->
+  <button class="btn" onclick="goToSite()">🎂 Entrer 🎉</button>
+
+  <!-- 🔊 Musique -->
   <audio autoplay loop>
     <source src="Indien.mp3" type="audio/mpeg">
   </audio>
+
+  <script>
+    function goToSite() {
+      window.location.href = "index.html";
+    }
+  </script>
 
 </body>
 </html>
