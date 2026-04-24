@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+
+  background: 
+    linear-gradient(rgba(20, 0, 40, 0.7), rgba(120, 0, 120, 0.6)),
+    url("disney.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Carte */
+.card {
+  width: 90%;
+  max-width: 600px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  text-align: center;
+  background: radial-gradient(circle, #ff7eb3, #8a2be2);
+  color: white;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  animation: fadeIn 1.5s ease;
+  .card {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+}
+
+/* Animation entrée */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Texte arc */
+.arc {
+  width: 100%;
+  height: 100px;
+  .arc text {
+  fill: #ffcc70;
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px #ffcc70, 0 0 20px #ffcc70;
+}
+}
+
+.arc text {
+  fill: #ffcc70;
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+/* Sous titre */
+.subtitle {
+  color: #ffd166;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+/* Date */
+.date {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Bloc info */
+.info {
+  color: black;
+  font-weight: bold;
+  background: rgba(255,255,255,0.7);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+/* bouton musique */
+.music-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+}
+
+/* Confettis */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: red;
+  top: -10px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- TEXTE EN ARC -->
+  <svg class="arc" viewBox="0 0 500 150">
+    <path id="curve" d="M 50 120 Q 250 0 450 120" fill="transparent"/>
+    <text>
+      <textPath href="#curve" startOffset="50%" text-anchor="middle">
+        DISNEYLAND
+      </textPath>
+    </text>
+  </svg>
+
+  <div class="subtitle">
+    PRÉPARE TA VALISE, DIRECTION DISNEY
+  </div>
+
+  <div class="date">
+    Samedi 30 mai - dimanche 31 mai
+  </div>
+
+  <div class="info">
+    En + le vendredi 29 mai une nuit à l’hôtel Noyal Châtillon sur Seiche (en face du Super U)
+  </div>
+
+
+</div>
+
+<audio id="music" autoplay loop>
+  <source src="Indien.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Force le lancement (contourne certains blocages)
+window.addEventListener("load", () => {
+  const music = document.getElementById("music");
+  music.play().catch(() => {
+    document.body.addEventListener("click", () => {
+      music.play();
+    }, { once: true });
+  });
+});
+</script>
+
+</body>
+</html>
